@@ -1,24 +1,19 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    
-    int x = 3;
-    int y = 4;
 
-    int z = x * y; // Multiplication
-    float i = x / (float)y; // Division with float cast
-    int j = x % y; // Modulus
-    int k = x + y; // Addition
-    int l = x - y; // Subtraction
-    int m = x++; // Increment
-    int n = y--; // Decrement
+    char name[25];
+    int age;
 
-    printf("%d\n", z);
-    printf("%f\n", i);
-    printf("%d\n", j);
-    printf("%d\n", k);
-    printf("%d\n", l);
-    printf("%d\n", m);
-    printf("%d\n", n);
+    printf("\nWhat is your name? ");
+    //scanf("%s", name);
+    fgets(name, sizeof(name), stdin); // Use fgets to read a string with spaces
+    name[strlen(name) - 1] = '\0'; // Remove the newline character added by fgets
+    printf("How old are you? ");
+    scanf("%d", &age);
+    printf("\nHello, %s!", name);
+    printf("\nYou are %d years old.\n", age);
+
     return 0;
 }
