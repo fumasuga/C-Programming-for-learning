@@ -1,18 +1,19 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
 
-    const double PI = 3.14159;
-    double radius;
-    double area;
-    double circumference;
+    double a;
+    double b;
+    double c;
 
-    printf("\nEnter the radius of the circle: ");
-    scanf("%lf", &radius);
+    printf("Enter the first number: ");
+    scanf("%lf", &a);
 
-    circumference = 2 * PI * radius;
-    area = PI * radius * radius;
-    printf("The circumference of the circle is: %.2f\n", circumference);
-    printf("The area of the circle is: %.2f\n", area);
+    printf("Enter the second number: ");
+    scanf("%lf", &b);
+
+    c = sqrt(a * a + b * b);
+    printf("The length of the hypotenuse is: %.2f\n", c);
     return 0;
 }
