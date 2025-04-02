@@ -1,18 +1,21 @@
 #include <stdio.h>
 
-// This program prints "Hello, World!" and then greets three other people.
-void helloWorld() {
-    printf("Hello, World!\n");
-    printf("Hello, John!\n");
-    printf("Hello, Jane!\n");
-    printf("Hello, Alice!\n");
+// This program asks the user for their name and age, then prints a greeting message.
+void hello(char name[], int age) {
+    printf("Hello, %s!\n", name);
+    printf("You are %d years old.\n", age);
 }
 
 int main() {
 
-    helloWorld();
-    helloWorld();
-    helloWorld();
+    char name[20];
+    int age;
 
+    printf("what is your name? ");
+    scanf("%s", name);
+    printf("How old are you? ");
+    scanf("%d", &age);
+
+    hello(name, age);
     return 0;
 }
