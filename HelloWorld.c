@@ -2,29 +2,42 @@
 
 int main() {
 
-    char grade;
+    char operator;
+    double num1, num2, result;
 
-    printf("Enter your grade (A, B, C, D, F): ");
-    scanf(" %c", &grade);
+    printf("Enter an operator (+, -, *, /): ");
+    scanf(" %c", &operator);
 
-    switch (grade) { // Switch statement to evaluate the grade
-        case 'A':
-            printf("Excellent!\n");
+    printf("Enter number 1: ");
+    scanf("%lf", &num1);
+
+    printf("Enter number 2: ");
+    scanf("%lf", &num2);
+
+    // Perform the operation based on the operator entered
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, result);
             break;
-        case 'B':
-            printf("Good job!\n");
+        case '-':
+            result = num1 - num2;
+            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, result);
             break;
-        case 'C':
-            printf("You can do better.\n");
+        case '*':
+            result = num1 * num2;
+            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, result);
             break;
-        case 'D':
-            printf("You need to work harder.\n");
-            break;
-        case 'F':
-            printf("Failed. Try again.\n");
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+                printf("%.2lf / %.2lf = %.2lf\n", num1, num2, result);
+            } else {
+                printf("Error! Division by zero.\n");
+            }
             break;
         default:
-            printf("Invalid grade entered.\n");
+            printf("Error! Invalid operator.\n");
     }
 
     return 0;
