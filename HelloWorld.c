@@ -2,19 +2,29 @@
 
 int main() {
 
-    int age;
+    char grade;
 
-    printf("\nHow old are you?");
-    scanf("%d", &age);
+    printf("Enter your grade (A, B, C, D, F): ");
+    scanf(" %c", &grade);
 
-    if(age >= 20){
-        printf("You are an adult.\n");
-    } else if(age >= 13 && age < 20){
-        printf("You are a teenager.\n");
-    } else if(age >= 0 && age < 13){
-        printf("You are a child.\n");
-    } else {
-        printf("Invalid age.\n");
+    switch (grade) { // Switch statement to evaluate the grade
+        case 'A':
+            printf("Excellent!\n");
+            break;
+        case 'B':
+            printf("Good job!\n");
+            break;
+        case 'C':
+            printf("You can do better.\n");
+            break;
+        case 'D':
+            printf("You need to work harder.\n");
+            break;
+        case 'F':
+            printf("Failed. Try again.\n");
+            break;
+        default:
+            printf("Invalid grade entered.\n");
     }
 
     return 0;
