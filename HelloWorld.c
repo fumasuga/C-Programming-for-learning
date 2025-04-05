@@ -1,19 +1,24 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
 
-    int num = 0;
-    int sum = 0;
+    int rows;
+    int cols;
+    char symbol;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
 
-    do {
-        sum += num;
-        printf("Current sum: %d\n", sum);
-        printf("Enter a number (0 to stop): ");
-        scanf("%d", &num);
-    } while (num != 0);
+    printf("Enter the number of columns: ");
+    scanf("%d", &cols);
+
+    printf("Enter the symbol to use: ");
+    scanf(" %c", &symbol);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%c ", symbol);
+        }
+        printf("\n");
+    }
     return 0;
 }
