@@ -3,19 +3,17 @@
 
 int main() {
 
-    char name[50];
+    int num = 0;
+    int sum = 0;
 
-    printf("what is your name? ");
-    fgets(name, sizeof(name), stdin); // Read a line of input from the user
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    name[strlen(name -1)] = '\0';
-    
-    while(strlen(name) == 0) {
-        printf("Please enter a valid name: ");
-        fgets(name, sizeof(name), stdin); // Read a line of input from the user
-        name[strlen(name -1)] = '\0';
-    }
-
-    printf("Hello, %s\n", name);
+    do {
+        sum += num;
+        printf("Current sum: %d\n", sum);
+        printf("Enter a number (0 to stop): ");
+        scanf("%d", &num);
+    } while (num != 0);
     return 0;
 }
