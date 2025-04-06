@@ -2,23 +2,18 @@
 
 int main() {
 
-    int rows;
-    int cols;
-    char symbol;
-
-    printf("Enter the number of rows: ");
-    scanf("%d", &rows);
-
-    printf("Enter the number of columns: ");
-    scanf("%d", &cols);
-
-    printf("Enter the symbol to use: ");
-    scanf(" %c", &symbol);
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%c ", symbol);
+    int x = 0;
+    printf("please enter a number: ");
+    scanf("%d", &x);
+    for (int i = 0; i <= x; i++) {
+        if (i == 19) {
+            continue; // Skip the number 19
         }
-        printf("\n");
+        if (i == 25) {
+            break; // Stop the loop when i is 25
+        }
+        printf("%d\n", i);
+
     }
     return 0;
 }
