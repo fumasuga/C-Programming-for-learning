@@ -3,13 +3,19 @@
 
 int main() {
 
-    char car[][20] = {"BMW", "Mercedes", "Audi", "Porsche"};
-    // cars[0] = "Toyota";
-    strcpy(car[0], "Toyota"); // Copying string into the first element of the array
+    char x[] = 'Water';
+    char y[] = 'Lemonade';
+    char temp[15];
 
-    for(int i = 0; i < sizeof(car)/sizeof(car[0]); i++) {
-        printf("%s\n", car[i]);
-    }
+    strcpy(temp, x); // Copy the value of x to temp
+    strcpy(x, y);    // Copy the value of y to x
+    strcpy(y, temp); // Copy the value of temp (original x) to y
 
+    // temp = x;
+    // x = y;
+    // y = temp;
+
+    printf("x = %c\n", x);
+    printf("y = %c\n", y);
     return 0;
 }
