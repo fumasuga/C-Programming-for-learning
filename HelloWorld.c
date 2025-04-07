@@ -1,21 +1,32 @@
 #include <stdio.h>
-#include <string.h>
+
+void sort(int array[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                // Swap array[j] and array[j + 1]
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+}
+
+void printArray(int array[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
 
 int main() {
 
-    char x[] = 'Water';
-    char y[] = 'Lemonade';
-    char temp[15];
+    int array[] = {3, 2, 3, 4, 5};
+    int size = sizeof(array) / sizeof(array[0]);
 
-    strcpy(temp, x); // Copy the value of x to temp
-    strcpy(x, y);    // Copy the value of y to x
-    strcpy(y, temp); // Copy the value of temp (original x) to y
+    sort(array, size);
+    printArray(array, size);
 
-    // temp = x;
-    // x = y;
-    // y = temp;
-
-    printf("x = %c\n", x);
-    printf("y = %c\n", y);
     return 0;
 }
