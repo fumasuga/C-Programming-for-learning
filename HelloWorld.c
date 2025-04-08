@@ -1,27 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 
-// struct is a user-defined data type in C that allows grouping of variables of different types
-struct  Hero {
-    char name[20];
+// typedef is used to create a new name for an existing type
+// typedef char user[25]; // Define a new type 'user' as an array of 25 characters
+typedef struct {
+    char name[25]; // Define a new type 'user' as a structure with a character array of size 25
     int age;
-    float height;
-};
+} User;
 
 int main() {
 
-    struct Hero hero1;
-    struct Hero hero2;
+    // user user1 = "Num";
 
-    strcpy(hero1.name, "Superman");
-    hero1.age = 30;
-    hero1.height = 6.2;
+    User user1 = {"Joji", 25}; // Initialize a user structure with name "Joji" and age 25
+    User user2 = {"Fox", 29}; // Initialize another user structure with name "Fox" and age 29
 
-    strcpy(hero2.name, "Batman");
-    hero2.age = 35;
-    hero2.height = 6.0;
+    printf("Hello %s\n", user1.name); // Print the name of user1
+    printf("Hello %s\n", user2.name); // Print the name of user2
 
-    printf("Hero 1: %s, Age: %d, Height: %.1f\n", hero1.name, hero1.age, hero1.height);
-    printf("Hero 2: %s, Age: %d, Height: %.1f\n", hero2.name, hero2.age, hero2.height);
     return 0;
 }
