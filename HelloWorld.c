@@ -1,23 +1,22 @@
 #include <stdio.h>
-#include <string.h>
 
-struct Student {
-    char name[50];
-    float gpa;
-};
+enum Day {Sunday = 1, Monday = 2, Tuesday = 3, Wednesday = 4, Thursday = 5, Friday = 6, Saturday = 7};
 
 int main() {
 
-    struct Student student1 = {"Mike", 2.5};
-    struct Student student2 = {"John", 3.8};
-    struct Student student3 = {"Alice", 2.9};
-    struct Student student4 = {"Bob", 2.2};
-    struct Student student5 = {"Eve", 1.7};
-    
-    struct Student students[] = {student1, student2, student3, student4, student5};
+    // enum is a user-defined type that consists of a set of named integer constants.
+    enum Day today = Wednesday;
 
-    for(int i = 0; i < sizeof(students)/sizeof(students[0]); i++) {
-        printf("Name: %s, GPA: %.2f\n", students[i].name, students[i].gpa);
+    printf("Today is day number %d of the week.\n", today);
+
+    if (today == Wednesday) {
+        printf("It's the middle of the week!\n");
+    } else if (today == Monday) {
+        printf("It's the start of the week!\n");
+    } else if (today == Sunday || today == Saturday) {\
+        printf("It's a weekday.\n");
+    } else {
+        printf("It's a regular weekday.\n");
     }
     return 0;
 }
