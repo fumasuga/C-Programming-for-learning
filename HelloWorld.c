@@ -1,32 +1,27 @@
 #include <stdio.h>
+#include <string.h>
 
-void sort(int array[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - i - 1; j++) {
-            if (array[j] > array[j + 1]) {
-                // Swap array[j] and array[j + 1]
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-    }
-}
-
-void printArray(int array[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
-    }
-    printf("\n");
-}
+// struct is a user-defined data type in C that allows grouping of variables of different types
+struct  Hero {
+    char name[20];
+    int age;
+    float height;
+};
 
 int main() {
 
-    int array[] = {3, 2, 3, 4, 5};
-    int size = sizeof(array) / sizeof(array[0]);
+    struct Hero hero1;
+    struct Hero hero2;
 
-    sort(array, size);
-    printArray(array, size);
+    strcpy(hero1.name, "Superman");
+    hero1.age = 30;
+    hero1.height = 6.2;
 
+    strcpy(hero2.name, "Batman");
+    hero2.age = 35;
+    hero2.height = 6.0;
+
+    printf("Hero 1: %s, Age: %d, Height: %.1f\n", hero1.name, hero1.age, hero1.height);
+    printf("Hero 2: %s, Age: %d, Height: %.1f\n", hero2.name, hero2.age, hero2.height);
     return 0;
 }
