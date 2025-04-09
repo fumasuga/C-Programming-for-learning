@@ -1,43 +1,48 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <ctype.h>
 
 int main() {
 
-    // Seed the random number generator
-    srand(time(NULL));
+    char question[][100] = {
+        "1.What year did the C language debut?",
+        "2.Who is the creator of the C language?",
+        "3.What is the predecessor of C?",
+    };
 
-    // Generate a random number between 1 and 100
-    int randomNumber = rand() % 100 + 1;
-    int guess = 0;
-    int attempts = 0;
-    int maxAttempts = 7; // Maximum number of attempts allowed
+    char options[][100] = {
+        "A. 1972", "B. 1970", "C. 1980", "D. 1990",
+        "A. Dennis Ritchie", "B. Brian Kernighan", "C. Ken Thompson", "D. Bjarne Stroustrup",
+        "A. Objective-C", "B. B", "C. C++", "D. Java",
+    };
 
-    printf("Welcome to the Guessing Game!\n");
-    printf("I have selected a random number between 1 and 100.\n");
-    printf("You have %d attempts to guess the number.\n", maxAttempts);
-    printf("Good luck!\n");
+    char answers[3] = {'A', 'A', 'B'};
+    int numberOfQuestions = sizeof(question) / sizeof(question[0]);
 
-    // Game loop
-    while (attempts < maxAttempts) {
-        printf("Attempt %d: Enter your guess: ", attempts + 1);
-        scanf("%d", &guess);
+    char guess;
+    int score = 0;
 
-        if (guess < 1 || guess > 100) {
-            printf("Please enter a number between 1 and 100.\n");
-            continue; // Skip the rest of the loop iteration
+    printf("*****************************************\n");
+    printf("Welcome to the C Quiz!\n");
+    printf("*****************************************\n");
+
+    for (int i = 0; i < numberOfQuestions; i++) {
+        printf("%s\n", question[i]);
+        for (int j = 0; j < 4; j++) {
+            printf("%s\n", options[i * 4 + j]);
         }
+        printf("Enter your answer (A, B, C, D): ");
+        scanf(" %c", &guess);
+        guess = toupper(guess);
 
-        attempts++;
-
-        if (guess < randomNumber) {
-            printf("Too low! Try again.\n");
-        } else if (guess > randomNumber) {
-            printf("Too high! Try again.\n");
+        if (guess == answers[i]) {
+            printf("Correct!\n\n");
+            score++;
         } else {
-            printf("Congratulations! You guessed the number %d in %d attempts!\n", randomNumber, attempts);
-            break; // Exit the loop if the guess is correct
+            printf("Wrong! The correct answer is %c.\n\n", answers[i]);
         }
     }
+    printf("*****************************************\n");
+    printf("You scored %d out of %d.\n", score, numberOfQuestions);
+    printf("*****************************************\n");
     return 0;
 }
