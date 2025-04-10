@@ -1,48 +1,33 @@
 #include <stdio.h>
-#include <ctype.h>
 
 int main() {
 
-    char question[][100] = {
-        "1.What year did the C language debut?",
-        "2.Who is the creator of the C language?",
-        "3.What is the predecessor of C?",
-    };
+    int x = 6; // 6 = 00000110
+    int y = 12; // 12 = 00001100
+    int z = 0; // 0 = 00000000
 
-    char options[][100] = {
-        "A. 1972", "B. 1970", "C. 1980", "D. 1990",
-        "A. Dennis Ritchie", "B. Brian Kernighan", "C. Ken Thompson", "D. Bjarne Stroustrup",
-        "A. Objective-C", "B. B", "C. C++", "D. Java",
-    };
+    // Bitwise AND
+    z = x & y; // 00000110 & 00001100 = 00000100 = 4
+    printf("Bitwise AND: %d\n", z); // Output: 4
 
-    char answers[3] = {'A', 'A', 'B'};
-    int numberOfQuestions = sizeof(question) / sizeof(question[0]);
+    // Bitwise OR
+    z = x | y; // 00000110 | 00001100 = 00001110 = 14
+    printf("Bitwise OR: %d\n", z); // Output: 14
 
-    char guess;
-    int score = 0;
+    // Bitwise XOR
+    z = x ^ y; // 00000110 ^ 00001100 = 00001010 = 10
+    printf("Bitwise XOR: %d\n", z); // Output: 10
 
-    printf("*****************************************\n");
-    printf("Welcome to the C Quiz!\n");
-    printf("*****************************************\n");
+    // Bitwise NOT
+    z = ~x; // ~00000110 = 11111001 = -7 (in two's complement representation)
+    printf("Bitwise NOT: %d\n", z); // Output: -7
 
-    for (int i = 0; i < numberOfQuestions; i++) {
-        printf("%s\n", question[i]);
-        for (int j = 0; j < 4; j++) {
-            printf("%s\n", options[i * 4 + j]);
-        }
-        printf("Enter your answer (A, B, C, D): ");
-        scanf(" %c", &guess);
-        guess = toupper(guess);
+    // Left Shift
+    z = x << 1; // 00000110 << 1 = 00001100 = 12
+    printf("Left Shift: %d\n", z); // Output: 12
 
-        if (guess == answers[i]) {
-            printf("Correct!\n\n");
-            score++;
-        } else {
-            printf("Wrong! The correct answer is %c.\n\n", answers[i]);
-        }
-    }
-    printf("*****************************************\n");
-    printf("You scored %d out of %d.\n", score, numberOfQuestions);
-    printf("*****************************************\n");
+    // Right Shift
+    z = x >> 1; // 00000110 >> 1 = 00000011 = 3
+    printf("Right Shift: %d\n", z); // Output: 3
     return 0;
 }
