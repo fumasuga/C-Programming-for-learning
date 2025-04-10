@@ -2,41 +2,17 @@
 
 int main() {
 
-    char x = 'X';
-    char y = 'Y';
-    char z = 'Z';
+    int age = 25;
+    int *pAge = &age; // Pointer to the age variable
 
-    printf("%d byte\n", sizeof(x)); // 1 byte
-    printf("%d byte\n", sizeof(y)); // 1 byte
-    printf("%d byte\n", sizeof(z)); // 1 byte
+    printf("address of age variable: %p\n", &age);
+    printf("address of pAge variable: %p\n", pAge); // Address of the variable pointed to by pAge
 
-    printf("%p\n", &x); // Address of x
-    printf("%p\n", &y); // Address of y
-    printf("%p\n", &z); // Address of z
+    printf("size of age variable: %d\n", sizeof(age));
+    printf("size of pAge variable: %d\n", sizeof(pAge)); // Size of the pointer variable pAge
 
-    short a = 'A';
-    short b = 'B';
-    short c = 'C';
-
-    printf("%d byte\n", sizeof(a)); // 2 bytes
-    printf("%d byte\n", sizeof(b)); // 2 bytes
-    printf("%d byte\n", sizeof(c)); // 2 bytes
-
-    printf("%p\n", &a); // Address of a
-    printf("%p\n", &b); // Address of b
-    printf("%p\n", &c); // Address of c
-
-    int d = 'D';
-    int e = 'E';
-    int f = 'F';
-
-    printf("%d byte\n", sizeof(d)); // 4 bytes
-    printf("%d byte\n", sizeof(e)); // 4 bytes
-    printf("%d byte\n", sizeof(f)); // 4 bytes
-
-    printf("%p\n", &d); // Address of d
-    printf("%p\n", &e); // Address of e
-    printf("%p\n", &f); // Address of f
+    printf("value of age variable: %d\n", age);
+    printf("value of pAge variable: %d\n", *pAge); // Value at the address pointed to by pAge
 
     return 0;
 }
