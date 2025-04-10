@@ -2,32 +2,41 @@
 
 int main() {
 
-    int x = 6; // 6 = 00000110
-    int y = 12; // 12 = 00001100
-    int z = 0; // 0 = 00000000
+    char x = 'X';
+    char y = 'Y';
+    char z = 'Z';
 
-    // Bitwise AND
-    z = x & y; // 00000110 & 00001100 = 00000100 = 4
-    printf("Bitwise AND: %d\n", z); // Output: 4
+    printf("%d byte\n", sizeof(x)); // 1 byte
+    printf("%d byte\n", sizeof(y)); // 1 byte
+    printf("%d byte\n", sizeof(z)); // 1 byte
 
-    // Bitwise OR
-    z = x | y; // 00000110 | 00001100 = 00001110 = 14
-    printf("Bitwise OR: %d\n", z); // Output: 14
+    printf("%p\n", &x); // Address of x
+    printf("%p\n", &y); // Address of y
+    printf("%p\n", &z); // Address of z
 
-    // Bitwise XOR
-    z = x ^ y; // 00000110 ^ 00001100 = 00001010 = 10
-    printf("Bitwise XOR: %d\n", z); // Output: 10
+    short a = 'A';
+    short b = 'B';
+    short c = 'C';
 
-    // Bitwise NOT
-    z = ~x; // ~00000110 = 11111001 = -7 (in two's complement representation)
-    printf("Bitwise NOT: %d\n", z); // Output: -7
+    printf("%d byte\n", sizeof(a)); // 2 bytes
+    printf("%d byte\n", sizeof(b)); // 2 bytes
+    printf("%d byte\n", sizeof(c)); // 2 bytes
 
-    // Left Shift
-    z = x << 1; // 00000110 << 1 = 00001100 = 12
-    printf("Left Shift: %d\n", z); // Output: 12
+    printf("%p\n", &a); // Address of a
+    printf("%p\n", &b); // Address of b
+    printf("%p\n", &c); // Address of c
 
-    // Right Shift
-    z = x >> 1; // 00000110 >> 1 = 00000011 = 3
-    printf("Right Shift: %d\n", z); // Output: 3
+    int d = 'D';
+    int e = 'E';
+    int f = 'F';
+
+    printf("%d byte\n", sizeof(d)); // 4 bytes
+    printf("%d byte\n", sizeof(e)); // 4 bytes
+    printf("%d byte\n", sizeof(f)); // 4 bytes
+
+    printf("%p\n", &d); // Address of d
+    printf("%p\n", &e); // Address of e
+    printf("%p\n", &f); // Address of f
+
     return 0;
 }
