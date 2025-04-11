@@ -2,17 +2,18 @@
 
 int main() {
 
-    int age = 25;
-    int *pAge = &age; // Pointer to the age variable
+    FILE *pF = fopen("test.txt", "w"); // Open the file in write mode
+    
+    fprintf(pF, "This is \n"); // Write to the file
+    fprintf(pF, "a test file.\n"); // Write to the file
 
-    printf("address of age variable: %p\n", &age);
-    printf("address of pAge variable: %p\n", pAge); // Address of the variable pointed to by pAge
+    fclose(pF); // Close the file
 
-    printf("size of age variable: %d\n", sizeof(age));
-    printf("size of pAge variable: %d\n", sizeof(pAge)); // Size of the pointer variable pAge
-
-    printf("value of age variable: %d\n", age);
-    printf("value of pAge variable: %d\n", *pAge); // Value at the address pointed to by pAge
+    if (remove("test.txt") == 0) { // Remove the file
+        printf("File deleted successfully.\n");
+    } else {
+        printf("Error deleting the file.\n");
+    }
 
     return 0;
 }
