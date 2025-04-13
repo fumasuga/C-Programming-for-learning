@@ -1,15 +1,22 @@
 #include <stdio.h>
+#include <stdarg.h> // For va_list, va_start, va_end
 
-typedef char *va_list; // This is a typedef for the va_list type, which is used for variable argument lists in functions like printf.
+#define BUFFER_SIZE 100 // Define a buffer size for the string
 
-typedef struct {
-    unsigned int_offset; // This is an unsigned integer offset.
-    unsigned int fp_offset; // This is another unsigned integer offset.
-    void *overflow_arg_area; // This is a pointer to an overflow argument area.
-    void *reg_save_area; // This is a pointer to a register save area.
-} va_list[1];
+// function to print used library functions
+void my_printf(const char *format, ...) {
+    va_list args; // Declare a variable to hold the variable arguments
+    char buffer[BUFFER_SIZE];
+    int ret;
+
+    va_start(args, format); // Initialize the va_list with the format string
+    ret = vsnprintf(buffer, BUFFER_SIZE, format, args); // Format the string and store it in the buffer
+
+    printf("%s", buffer); // Print the formatted string to stdout
+    va_end(args); // Clean up the va_list
+}
 
 int main() {
-
+    my_printf("%d, %d, %d\n", 1, 2, 3);
     return 0;
 }
